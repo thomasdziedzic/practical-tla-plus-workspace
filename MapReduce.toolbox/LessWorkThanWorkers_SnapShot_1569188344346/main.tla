@@ -18,7 +18,7 @@ UnfairWorkers == Workers \ FairWorkers
 variables
     input \in PossibleInputs,
     result = [w \in Workers |-> [total |-> NULL, count |-> NULL]],
-    queue = [w \in Workers |-> NULL],
+    queue = [w \in Workers |-> <<>>],
     status = [w \in Workers |-> "active"]; \* only the reducer should touch this
 
 define
@@ -28,10 +28,8 @@ define
     TypeInvariant ==
         /\ status \in [Workers -> {"active", "inactive", "broken"}]
         /\ \A w \in Workers:
-            /\ \/ queue[w] = NULL
-               \/ Len(queue[w]) <= ItemCount
-            /\ \/ queue[w] = NULL
-               \/ \A item \in 1..Len(queue[w]): queue[w][item] \in ItemRange
+            /\ Len(queue[w]) <= ItemCount
+            /\ \A item \in 1..Len(queue[w]): queue[w][item] \in ItemRange
             /\ \/ result[w].total = NULL
                \/ result[w].total <= SumSeq(input)
             /\ \/ result[w].count = NULL
@@ -51,7 +49,7 @@ variables
     count = 0;
 begin
     WaitForQueue:
-        await queue[self] /= NULL;
+        await queue[self] /= <<>>;
     Process:
         while queue[self] /= <<>> do
             total := total + Head(queue[self]);
@@ -117,10 +115,8 @@ HealthyWorkers == {w \in Workers: status[w] /= "broken"}
 TypeInvariant ==
     /\ status \in [Workers -> {"active", "inactive", "broken"}]
     /\ \A w \in Workers:
-        /\ \/ queue[w] = NULL
-           \/ Len(queue[w]) <= ItemCount
-        /\ \/ queue[w] = NULL
-           \/ \A item \in 1..Len(queue[w]): queue[w][item] \in ItemRange
+        /\ Len(queue[w]) <= ItemCount
+        /\ \A item \in 1..Len(queue[w]): queue[w][item] \in ItemRange
         /\ \/ result[w].total = NULL
            \/ result[w].total <= SumSeq(input)
         /\ \/ result[w].count = NULL
@@ -136,7 +132,7 @@ ProcSet == {Reducer} \cup (FairWorkers) \cup (UnfairWorkers)
 Init == (* Global variables *)
         /\ input \in PossibleInputs
         /\ result = [w \in Workers |-> [total |-> NULL, count |-> NULL]]
-        /\ queue = [w \in Workers |-> NULL]
+        /\ queue = [w \in Workers |-> <<>>]
         /\ status = [w \in Workers |-> "active"]
         (* Procedure work *)
         /\ total = [ self \in ProcSet |-> 0]
@@ -150,7 +146,7 @@ Init == (* Global variables *)
                                         [] self \in UnfairWorkers -> "RegularWorker"]
 
 WaitForQueue(self) == /\ pc[self] = "WaitForQueue"
-                      /\ queue[self] /= NULL
+                      /\ queue[self] /= <<>>
                       /\ pc' = [pc EXCEPT ![self] = "Process"]
                       /\ UNCHANGED << input, result, queue, status, stack, 
                                       total, count, final, assignments >>
@@ -204,7 +200,7 @@ ReduceResult == /\ pc[Reducer] = "ReduceResult"
 
 Finish == /\ pc[Reducer] = "Finish"
           /\ Assert(SumSeq(final) = SumSeq(input), 
-                    "Failure of assertion at line 96, column 9.")
+                    "Failure of assertion at line 94, column 9.")
           /\ pc' = [pc EXCEPT ![Reducer] = "Done"]
           /\ UNCHANGED << input, result, queue, status, stack, total, count, 
                           final, assignments >>
@@ -263,5 +259,5 @@ ReducerTerminates == <>(pc[Reducer] = "Finish")
 
 =============================================================================
 \* Modification History
-\* Last modified Sun Sep 22 16:49:08 CDT 2019 by tom
+\* Last modified Sun Sep 22 14:00:26 CDT 2019 by tom
 \* Created Sat Sep 21 21:00:13 CDT 2019 by tom
