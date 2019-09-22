@@ -1,0 +1,3 @@
+page 43, BinTypes and Items should also be highlighted
+page 45, >> {1, 2} - 2 should be >> {1, 2} -- 2 since we're defining a -- operator
+----SENT ABOVE THIS LINE-----

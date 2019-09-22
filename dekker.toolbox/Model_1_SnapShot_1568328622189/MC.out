@@ -1,0 +1,419 @@
+@!@!@STARTMSG 2262:0 @!@!@
+TLC2 Version 2.14 of 10 July 2019
+@!@!@ENDMSG 2262 @!@!@
+@!@!@STARTMSG 2187:0 @!@!@
+Running breadth-first search Model-Checking with fp 0 and seed -3354575919710116631 with 4 workers on 8 cores with 1168MB heap and 2625MB offheap memory [pid: 13005] (Linux 4.15.0-1050-oem amd64, AdoptOpenJDK 11.0.3 x86_64, OffHeapDiskFPSet, DiskStateQueue).
+@!@!@ENDMSG 2187 @!@!@
+@!@!@STARTMSG 2220:0 @!@!@
+Starting SANY...
+@!@!@ENDMSG 2220 @!@!@
+Parsing file /home/tom/work/practical-tla-plus-workspace/dekker.toolbox/Model_1/MC.tla
+Parsing file /home/tom/work/practical-tla-plus-workspace/dekker.toolbox/Model_1/dekker.tla
+Parsing file /home/tom/tla+ 1.6.0 toolbox/plugins/org.lamport.tlatools_1.0.0.201907102009/tla2sany/StandardModules/TLC.tla
+Parsing file /home/tom/tla+ 1.6.0 toolbox/plugins/org.lamport.tlatools_1.0.0.201907102009/tla2sany/StandardModules/Integers.tla
+Parsing file /home/tom/tla+ 1.6.0 toolbox/plugins/org.lamport.tlatools_1.0.0.201907102009/tla2sany/StandardModules/Sequences.tla
+Parsing file /home/tom/tla+ 1.6.0 toolbox/plugins/org.lamport.tlatools_1.0.0.201907102009/tla2sany/StandardModules/Naturals.tla
+Parsing file /home/tom/tla+ 1.6.0 toolbox/plugins/org.lamport.tlatools_1.0.0.201907102009/tla2sany/StandardModules/FiniteSets.tla
+Semantic processing of module Naturals
+Semantic processing of module Sequences
+Semantic processing of module FiniteSets
+Semantic processing of module TLC
+Semantic processing of module Integers
+Semantic processing of module dekker
+Semantic processing of module MC
+@!@!@STARTMSG 2219:0 @!@!@
+SANY finished.
+@!@!@ENDMSG 2219 @!@!@
+@!@!@STARTMSG 2185:0 @!@!@
+Starting... (2019-09-12 17:50:19)
+@!@!@ENDMSG 2185 @!@!@
+@!@!@STARTMSG 2212:0 @!@!@
+Implied-temporal checking--satisfiability problem has 2 branches.
+@!@!@ENDMSG 2212 @!@!@
+@!@!@STARTMSG 2189:0 @!@!@
+Computing initial states...
+@!@!@ENDMSG 2189 @!@!@
+@!@!@STARTMSG 2190:0 @!@!@
+Finished computing initial states: 2 distinct states generated at 2019-09-12 17:50:20.
+@!@!@ENDMSG 2190 @!@!@
+@!@!@STARTMSG 2200:0 @!@!@
+Progress(18) at 2019-09-12 17:50:20: 300 states generated, 156 distinct states found, 0 states left on queue.
+@!@!@ENDMSG 2200 @!@!@
+@!@!@STARTMSG 2192:0 @!@!@
+Checking 2 branches of temporal properties for the complete state space with 312 total distinct states at (2019-09-12 17:50:20)
+@!@!@ENDMSG 2192 @!@!@
+@!@!@STARTMSG 2116:1 @!@!@
+Temporal properties were violated.
+
+@!@!@ENDMSG 2116 @!@!@
+@!@!@STARTMSG 2264:1 @!@!@
+The following behavior constitutes a counter-example:
+
+@!@!@ENDMSG 2264 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+1: <Initial predicate>
+/\ flag = <<FALSE, FALSE>>
+/\ stack = <<<<>>, <<>>>>
+/\ next_thread = 2
+/\ pc = <<"Fair", "Crashable">>
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+2: <Fair line 115, col 15 to line 120, col 50 of module dekker>
+/\ flag = <<FALSE, FALSE>>
+/\ stack = <<<<[pc |-> "Done", procedure |-> "thread"]>>, <<>>>>
+/\ next_thread = 2
+/\ pc = <<"P1", "Crashable">>
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+3: <Crashable line 124, col 20 to line 129, col 55 of module dekker>
+/\ flag = <<FALSE, FALSE>>
+/\ stack = << <<[pc |-> "Done", procedure |-> "thread"]>>,
+   <<[pc |-> "Done", procedure |-> "thread"]>> >>
+/\ next_thread = 2
+/\ pc = <<"P1", "P1">>
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+4: <P1 line 59, col 13 to line 62, col 49 of module dekker>
+/\ flag = <<FALSE, TRUE>>
+/\ stack = << <<[pc |-> "Done", procedure |-> "thread"]>>,
+   <<[pc |-> "Done", procedure |-> "thread"]>> >>
+/\ next_thread = 2
+/\ pc = <<"P1", "P2">>
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+5: <P1 line 59, col 13 to line 62, col 49 of module dekker>
+/\ flag = <<TRUE, TRUE>>
+/\ stack = << <<[pc |-> "Done", procedure |-> "thread"]>>,
+   <<[pc |-> "Done", procedure |-> "thread"]>> >>
+/\ next_thread = 2
+/\ pc = <<"P2", "P2">>
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+6: <P2 line 64, col 13 to line 68, col 55 of module dekker>
+/\ flag = <<TRUE, TRUE>>
+/\ stack = << <<[pc |-> "Done", procedure |-> "thread"]>>,
+   <<[pc |-> "Done", procedure |-> "thread"]>> >>
+/\ next_thread = 2
+/\ pc = <<"P2_1", "P2">>
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+7: <P2_1 line 70, col 15 to line 74, col 57 of module dekker>
+/\ flag = <<TRUE, TRUE>>
+/\ stack = << <<[pc |-> "Done", procedure |-> "thread"]>>,
+   <<[pc |-> "Done", procedure |-> "thread"]>> >>
+/\ next_thread = 2
+/\ pc = <<"P2_1_1", "P2">>
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+8: <P2_1_1 line 76, col 17 to line 79, col 53 of module dekker>
+/\ flag = <<FALSE, TRUE>>
+/\ stack = << <<[pc |-> "Done", procedure |-> "thread"]>>,
+   <<[pc |-> "Done", procedure |-> "thread"]>> >>
+/\ next_thread = 2
+/\ pc = <<"P2_1_2", "P2">>
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2218:4 @!@!@
+9: Stuttering
+@!@!@ENDMSG 2218 @!@!@
+@!@!@STARTMSG 2267:0 @!@!@
+Finished checking temporal properties in 00s at 2019-09-12 17:50:21
+@!@!@ENDMSG 2267 @!@!@
+@!@!@STARTMSG 2201:0 @!@!@
+The coverage statistics at 2019-09-12 17:50:21
+@!@!@ENDMSG 2201 @!@!@
+@!@!@STARTMSG 2773:0 @!@!@
+<Init line 52, col 1 to line 52, col 4 of module dekker>: 4:4
+@!@!@ENDMSG 2773 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 53, col 12 to line 53, col 43 of module dekker: 2
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 54, col 12 to line 54, col 34 of module dekker: 2
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 55, col 12 to line 55, col 47 of module dekker: 4
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 56, col 12 to line 57, col 71 of module dekker: 4
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2772:0 @!@!@
+<P1 line 59, col 1 to line 59, col 8 of module dekker>: 25:39
+@!@!@ENDMSG 2772 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 59, col 16 to line 59, col 30 of module dekker: 363
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 59, col 16 to line 59, col 23 of module dekker: 324
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 60, col 16 to line 60, col 51 of module dekker: 39
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 61, col 16 to line 61, col 47 of module dekker: 39
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 62, col 16 to line 62, col 49 of module dekker: 39
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2772:0 @!@!@
+<P2 line 64, col 1 to line 64, col 8 of module dekker>: 34:41
+@!@!@ENDMSG 2772 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 64, col 16 to line 64, col 30 of module dekker: 363
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 64, col 16 to line 64, col 23 of module dekker: 322
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 65, col 19 to line 65, col 52 of module dekker: 41
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 66, col 24 to line 66, col 60 of module dekker: 23
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 67, col 24 to line 67, col 58 of module dekker: 18
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 68, col 16 to line 68, col 55 of module dekker: 41
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2772:0 @!@!@
+<P2_1 line 70, col 1 to line 70, col 10 of module dekker>: 10:33
+@!@!@ENDMSG 2772 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 70, col 18 to line 70, col 34 of module dekker: 354
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 70, col 18 to line 70, col 25 of module dekker: 321
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 71, col 21 to line 71, col 39 of module dekker: 33
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 72, col 26 to line 72, col 64 of module dekker: 15
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 73, col 26 to line 73, col 60 of module dekker: 18
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 74, col 18 to line 74, col 57 of module dekker: 33
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2772:0 @!@!@
+<P2_1_1 line 76, col 1 to line 76, col 12 of module dekker>: 19:29
+@!@!@ENDMSG 2772 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 76, col 20 to line 76, col 38 of module dekker: 349
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 76, col 20 to line 76, col 27 of module dekker: 320
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 77, col 20 to line 77, col 56 of module dekker: 29
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 78, col 20 to line 78, col 55 of module dekker: 29
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 79, col 20 to line 79, col 53 of module dekker: 29
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2772:0 @!@!@
+<P2_1_2 line 81, col 1 to line 81, col 12 of module dekker>: 8:18
+@!@!@ENDMSG 2772 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 81, col 20 to line 81, col 38 of module dekker: 337
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 81, col 20 to line 81, col 27 of module dekker: 319
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 82, col 20 to line 82, col 37 of module dekker: 50
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 82, col 20 to line 82, col 30 of module dekker: 32
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 82, col 34 to line 82, col 37 of module dekker: 32
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 83, col 20 to line 83, col 55 of module dekker: 18
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 84, col 20 to line 84, col 59 of module dekker: 18
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2772:0 @!@!@
+<P2_1_3 line 86, col 1 to line 86, col 12 of module dekker>: 0:18
+@!@!@ENDMSG 2772 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 86, col 20 to line 86, col 38 of module dekker: 337
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 86, col 20 to line 86, col 27 of module dekker: 319
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 87, col 20 to line 87, col 55 of module dekker: 18
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 88, col 20 to line 88, col 51 of module dekker: 18
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 89, col 20 to line 89, col 53 of module dekker: 18
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2772:0 @!@!@
+<CS line 91, col 1 to line 91, col 8 of module dekker>: 18:28
+@!@!@ENDMSG 2772 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 91, col 16 to line 91, col 30 of module dekker: 347
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 91, col 16 to line 91, col 23 of module dekker: 319
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 92, col 16 to line 92, col 19 of module dekker: 28
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 93, col 16 to line 93, col 47 of module dekker: 28
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 94, col 16 to line 94, col 55 of module dekker: 28
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2772:0 @!@!@
+<P3 line 96, col 1 to line 96, col 8 of module dekker>: 11:28
+@!@!@ENDMSG 2772 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 96, col 16 to line 96, col 30 of module dekker: 347
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 96, col 16 to line 96, col 23 of module dekker: 319
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 97, col 16 to line 98, col 33 of module dekker: 28
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 99, col 16 to line 99, col 47 of module dekker: 28
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 100, col 16 to line 100, col 42 of module dekker: 28
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2772:0 @!@!@
+<P4 line 102, col 1 to line 102, col 8 of module dekker>: 12:16
+@!@!@ENDMSG 2772 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 102, col 16 to line 102, col 30 of module dekker: 335
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 102, col 16 to line 102, col 23 of module dekker: 319
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 103, col 16 to line 103, col 52 of module dekker: 16
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 104, col 16 to line 104, col 47 of module dekker: 16
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 105, col 16 to line 105, col 49 of module dekker: 16
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2772:0 @!@!@
+<P5 line 107, col 1 to line 107, col 8 of module dekker>: 6:32
+@!@!@ENDMSG 2772 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 107, col 16 to line 107, col 30 of module dekker: 351
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 107, col 16 to line 107, col 23 of module dekker: 319
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 108, col 16 to line 108, col 47 of module dekker: 32
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 109, col 16 to line 109, col 55 of module dekker: 32
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2772:0 @!@!@
+<Fair line 115, col 1 to line 115, col 10 of module dekker>: 3:13
+@!@!@ENDMSG 2772 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 115, col 18 to line 115, col 34 of module dekker: 172
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 115, col 18 to line 115, col 25 of module dekker: 159
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 116, col 18 to line 118, col 66 of module dekker: 13
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 119, col 18 to line 119, col 49 of module dekker: 13
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 120, col 18 to line 120, col 50 of module dekker: 13
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2772:0 @!@!@
+<Crashable line 124, col 1 to line 124, col 15 of module dekker>: 8:14
+@!@!@ENDMSG 2772 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 124, col 23 to line 124, col 44 of module dekker: 172
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 124, col 23 to line 124, col 30 of module dekker: 158
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 125, col 23 to line 127, col 71 of module dekker: 14
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 128, col 23 to line 128, col 54 of module dekker: 14
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 129, col 23 to line 129, col 55 of module dekker: 14
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2772:0 @!@!@
+<Terminating line 134, col 1 to line 134, col 11 of module dekker>: 0:0
+@!@!@ENDMSG 2772 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 134, col 19 to line 134, col 56 of module dekker: 157
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 135, col 19 to line 135, col 32 of module dekker: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2774:0 @!@!@
+<AtMostOneCritical2 line 155, col 1 to line 155, col 18 of module dekker>
+@!@!@ENDMSG 2774 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 156, col 5 to line 157, col 53 of module dekker: 156
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 157, col 9 to line 157, col 53 of module dekker: 624
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  ||line 157, col 9 to line 157, col 16 of module dekker: 624
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  ||line 157, col 21 to line 157, col 53 of module dekker: 312
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |||line 157, col 23 to line 157, col 52 of module dekker: 312
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  ||||line 157, col 23 to line 157, col 35 of module dekker: 312
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  ||||line 157, col 40 to line 157, col 52 of module dekker: 28
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 156, col 19 to line 156, col 25 of module dekker: 156
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2202:0 @!@!@
+End of statistics.
+@!@!@ENDMSG 2202 @!@!@
+@!@!@STARTMSG 2200:0 @!@!@
+Progress(18) at 2019-09-12 17:50:21: 300 states generated (10,262 s/min), 156 distinct states found (5,336 ds/min), 0 states left on queue.
+@!@!@ENDMSG 2200 @!@!@
+@!@!@STARTMSG 2199:0 @!@!@
+300 states generated, 156 distinct states found, 0 states left on queue.
+@!@!@ENDMSG 2199 @!@!@
+@!@!@STARTMSG 2186:0 @!@!@
+Finished in 1757ms at (2019-09-12 17:50:21)
+@!@!@ENDMSG 2186 @!@!@

@@ -1,0 +1,769 @@
+@!@!@STARTMSG 2262:0 @!@!@
+TLC2 Version 2.14 of 10 July 2019
+@!@!@ENDMSG 2262 @!@!@
+@!@!@STARTMSG 2187:0 @!@!@
+Running breadth-first search Model-Checking with fp 119 and seed -5587005148519108268 with 4 workers on 8 cores with 1168MB heap and 2625MB offheap memory [pid: 14130] (Linux 4.15.0-1056-oem amd64, AdoptOpenJDK 11.0.3 x86_64, OffHeapDiskFPSet, DiskStateQueue).
+@!@!@ENDMSG 2187 @!@!@
+@!@!@STARTMSG 2220:0 @!@!@
+Starting SANY...
+@!@!@ENDMSG 2220 @!@!@
+Parsing file /home/tom/work/practical-tla-plus-workspace/MapReduce.toolbox/Model_1/MC.tla
+Parsing file /home/tom/work/practical-tla-plus-workspace/MapReduce.toolbox/Model_1/main.tla
+Parsing file /home/tom/tla+ 1.6.0 toolbox/plugins/org.lamport.tlatools_1.0.0.201907102009/tla2sany/StandardModules/TLC.tla
+Parsing file /home/tom/tla+ 1.6.0 toolbox/plugins/org.lamport.tlatools_1.0.0.201907102009/tla2sany/StandardModules/Sequences.tla
+Parsing file /home/tom/tla+ 1.6.0 toolbox/plugins/org.lamport.tlatools_1.0.0.201907102009/tla2sany/StandardModules/Integers.tla
+Parsing file /home/tom/tla+ 1.6.0 toolbox/plugins/org.lamport.tlatools_1.0.0.201907102009/tla2sany/StandardModules/FiniteSets.tla
+Parsing file /home/tom/tla+ 1.6.0 toolbox/plugins/org.lamport.tlatools_1.0.0.201907102009/tla2sany/StandardModules/Naturals.tla
+Parsing file /home/tom/work/practical-tla-plus-workspace/MapReduce.toolbox/Model_1/PT.tla
+Semantic processing of module Naturals
+Semantic processing of module Sequences
+Semantic processing of module FiniteSets
+Semantic processing of module TLC
+Semantic processing of module Integers
+Semantic processing of module PT
+Semantic processing of module main
+Semantic processing of module MC
+@!@!@STARTMSG 2219:0 @!@!@
+SANY finished.
+@!@!@ENDMSG 2219 @!@!@
+@!@!@STARTMSG 2185:0 @!@!@
+Starting... (2019-09-22 13:59:07)
+@!@!@ENDMSG 2185 @!@!@
+@!@!@STARTMSG 2212:0 @!@!@
+Implied-temporal checking--satisfiability problem has 2 branches.
+@!@!@ENDMSG 2212 @!@!@
+@!@!@STARTMSG 2189:0 @!@!@
+Computing initial states...
+@!@!@ENDMSG 2189 @!@!@
+@!@!@STARTMSG 2269:0 @!@!@
+Computed 2 initial states...
+@!@!@ENDMSG 2269 @!@!@
+@!@!@STARTMSG 2269:0 @!@!@
+Computed 4 initial states...
+@!@!@ENDMSG 2269 @!@!@
+@!@!@STARTMSG 2269:0 @!@!@
+Computed 8 initial states...
+@!@!@ENDMSG 2269 @!@!@
+@!@!@STARTMSG 2190:0 @!@!@
+Finished computing initial states: 9 distinct states generated at 2019-09-22 13:59:07.
+@!@!@ENDMSG 2190 @!@!@
+@!@!@STARTMSG 2192:0 @!@!@
+Checking 2 branches of temporal properties for the current state space with 15643 total distinct states at (2019-09-22 13:59:10)
+@!@!@ENDMSG 2192 @!@!@
+@!@!@STARTMSG 2267:0 @!@!@
+Finished checking temporal properties in 00s at 2019-09-22 13:59:10
+@!@!@ENDMSG 2267 @!@!@
+@!@!@STARTMSG 2200:0 @!@!@
+Progress(11) at 2019-09-22 13:59:10: 24,114 states generated (24,114 s/min), 8,977 distinct states found (8,977 ds/min), 2,309 states left on queue.
+@!@!@ENDMSG 2200 @!@!@
+@!@!@STARTMSG 2200:0 @!@!@
+Progress(25) at 2019-09-22 13:59:12: 82,710 states generated, 28,386 distinct states found, 0 states left on queue.
+@!@!@ENDMSG 2200 @!@!@
+@!@!@STARTMSG 2192:0 @!@!@
+Checking 2 branches of temporal properties for the complete state space with 56772 total distinct states at (2019-09-22 13:59:12)
+@!@!@ENDMSG 2192 @!@!@
+@!@!@STARTMSG 2116:1 @!@!@
+Temporal properties were violated.
+
+@!@!@ENDMSG 2116 @!@!@
+@!@!@STARTMSG 2264:1 @!@!@
+The following behavior constitutes a counter-example:
+
+@!@!@ENDMSG 2264 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+1: <Initial predicate>
+/\ final = (w1 :> 0 @@ w2 :> 0 @@ w3 :> 0)
+/\ pc = ( w1 :> "FairWorker" @@
+  w2 :> "RegularWorker" @@
+  w3 :> "RegularWorker" @@
+  Reducer :> "Schedule" )
+/\ assignments = (w1 :> <<>> @@ w2 :> <<>> @@ w3 :> <<>>)
+/\ input = <<0, 0>>
+/\ count = (w1 :> 0 @@ w2 :> 0 @@ w3 :> 0 @@ Reducer :> 0)
+/\ queue = (w1 :> <<>> @@ w2 :> <<>> @@ w3 :> <<>>)
+/\ result = ( w1 :> [total |-> NULL, count |-> NULL] @@
+  w2 :> [total |-> NULL, count |-> NULL] @@
+  w3 :> [total |-> NULL, count |-> NULL] )
+/\ total = (w1 :> 0 @@ w2 :> 0 @@ w3 :> 0 @@ Reducer :> 0)
+/\ status = (w1 :> "active" @@ w2 :> "active" @@ w3 :> "active")
+/\ stack = (w1 :> <<>> @@ w2 :> <<>> @@ w3 :> <<>> @@ Reducer :> <<>>)
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+2: <FairWorker line 204, col 21 to line 214, col 50 of module main>
+/\ final = (w1 :> 0 @@ w2 :> 0 @@ w3 :> 0)
+/\ pc = ( w1 :> "WaitForQueue" @@
+  w2 :> "RegularWorker" @@
+  w3 :> "RegularWorker" @@
+  Reducer :> "Schedule" )
+/\ assignments = (w1 :> <<>> @@ w2 :> <<>> @@ w3 :> <<>>)
+/\ input = <<0, 0>>
+/\ count = (w1 :> 0 @@ w2 :> 0 @@ w3 :> 0 @@ Reducer :> 0)
+/\ queue = (w1 :> <<>> @@ w2 :> <<>> @@ w3 :> <<>>)
+/\ result = ( w1 :> [total |-> NULL, count |-> NULL] @@
+  w2 :> [total |-> NULL, count |-> NULL] @@
+  w3 :> [total |-> NULL, count |-> NULL] )
+/\ total = (w1 :> 0 @@ w2 :> 0 @@ w3 :> 0 @@ Reducer :> 0)
+/\ status = (w1 :> "active" @@ w2 :> "active" @@ w3 :> "active")
+/\ stack = ( w1 :> <<[pc |-> "Done", total |-> 0, count |-> 0, procedure |-> "work"]>> @@
+  w2 :> <<>> @@
+  w3 :> <<>> @@
+  Reducer :> <<>> )
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+3: <RegularWorker line 218, col 24 to line 228, col 53 of module main>
+/\ final = (w1 :> 0 @@ w2 :> 0 @@ w3 :> 0)
+/\ pc = ( w1 :> "WaitForQueue" @@
+  w2 :> "RegularWorker" @@
+  w3 :> "WaitForQueue" @@
+  Reducer :> "Schedule" )
+/\ assignments = (w1 :> <<>> @@ w2 :> <<>> @@ w3 :> <<>>)
+/\ input = <<0, 0>>
+/\ count = (w1 :> 0 @@ w2 :> 0 @@ w3 :> 0 @@ Reducer :> 0)
+/\ queue = (w1 :> <<>> @@ w2 :> <<>> @@ w3 :> <<>>)
+/\ result = ( w1 :> [total |-> NULL, count |-> NULL] @@
+  w2 :> [total |-> NULL, count |-> NULL] @@
+  w3 :> [total |-> NULL, count |-> NULL] )
+/\ total = (w1 :> 0 @@ w2 :> 0 @@ w3 :> 0 @@ Reducer :> 0)
+/\ status = (w1 :> "active" @@ w2 :> "active" @@ w3 :> "active")
+/\ stack = ( w1 :> <<[pc |-> "Done", total |-> 0, count |-> 0, procedure |-> "work"]>> @@
+  w2 :> <<>> @@
+  w3 :> <<[pc |-> "Done", total |-> 0, count |-> 0, procedure |-> "work"]>> @@
+  Reducer :> <<>> )
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+4: <Schedule line 172, col 13 to line 180, col 80 of module main>
+/\ final = (w1 :> 0 @@ w2 :> 0 @@ w3 :> 0)
+/\ pc = ( w1 :> "WaitForQueue" @@
+  w2 :> "RegularWorker" @@
+  w3 :> "WaitForQueue" @@
+  Reducer :> "ReduceResult" )
+/\ assignments = (w1 :> <<>> @@ w2 :> <<0>> @@ w3 :> <<0>>)
+/\ input = <<0, 0>>
+/\ count = (w1 :> 0 @@ w2 :> 0 @@ w3 :> 0 @@ Reducer :> 0)
+/\ queue = (w1 :> <<>> @@ w2 :> <<0>> @@ w3 :> <<0>>)
+/\ result = ( w1 :> [total |-> NULL, count |-> NULL] @@
+  w2 :> [total |-> NULL, count |-> NULL] @@
+  w3 :> [total |-> NULL, count |-> NULL] )
+/\ total = (w1 :> 0 @@ w2 :> 0 @@ w3 :> 0 @@ Reducer :> 0)
+/\ status = (w1 :> "active" @@ w2 :> "active" @@ w3 :> "active")
+/\ stack = ( w1 :> <<[pc |-> "Done", total |-> 0, count |-> 0, procedure |-> "work"]>> @@
+  w2 :> <<>> @@
+  w3 :> <<[pc |-> "Done", total |-> 0, count |-> 0, procedure |-> "work"]>> @@
+  Reducer :> <<>> )
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+5: <WaitForQueue line 147, col 23 to line 151, col 73 of module main>
+/\ final = (w1 :> 0 @@ w2 :> 0 @@ w3 :> 0)
+/\ pc = ( w1 :> "WaitForQueue" @@
+  w2 :> "RegularWorker" @@
+  w3 :> "Process" @@
+  Reducer :> "ReduceResult" )
+/\ assignments = (w1 :> <<>> @@ w2 :> <<0>> @@ w3 :> <<0>>)
+/\ input = <<0, 0>>
+/\ count = (w1 :> 0 @@ w2 :> 0 @@ w3 :> 0 @@ Reducer :> 0)
+/\ queue = (w1 :> <<>> @@ w2 :> <<0>> @@ w3 :> <<0>>)
+/\ result = ( w1 :> [total |-> NULL, count |-> NULL] @@
+  w2 :> [total |-> NULL, count |-> NULL] @@
+  w3 :> [total |-> NULL, count |-> NULL] )
+/\ total = (w1 :> 0 @@ w2 :> 0 @@ w3 :> 0 @@ Reducer :> 0)
+/\ status = (w1 :> "active" @@ w2 :> "active" @@ w3 :> "active")
+/\ stack = ( w1 :> <<[pc |-> "Done", total |-> 0, count |-> 0, procedure |-> "work"]>> @@
+  w2 :> <<>> @@
+  w3 :> <<[pc |-> "Done", total |-> 0, count |-> 0, procedure |-> "work"]>> @@
+  Reducer :> <<>> )
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+6: <ReduceResult line 182, col 17 to line 200, col 69 of module main>
+/\ final = (w1 :> 0 @@ w2 :> 0 @@ w3 :> 0)
+/\ pc = ( w1 :> "WaitForQueue" @@
+  w2 :> "RegularWorker" @@
+  w3 :> "Process" @@
+  Reducer :> "ReduceResult" )
+/\ assignments = (w1 :> <<>> @@ w2 :> <<0, 0>> @@ w3 :> <<0>>)
+/\ input = <<0, 0>>
+/\ count = (w1 :> 0 @@ w2 :> 0 @@ w3 :> 0 @@ Reducer :> 0)
+/\ queue = (w1 :> <<>> @@ w2 :> <<0, 0>> @@ w3 :> <<0>>)
+/\ result = ( w1 :> [total |-> NULL, count |-> NULL] @@
+  w2 :> [total |-> NULL, count |-> NULL] @@
+  w3 :> [total |-> NULL, count |-> NULL] )
+/\ total = (w1 :> 0 @@ w2 :> 0 @@ w3 :> 0 @@ Reducer :> 0)
+/\ status = (w1 :> "active" @@ w2 :> "active" @@ w3 :> "broken")
+/\ stack = ( w1 :> <<[pc |-> "Done", total |-> 0, count |-> 0, procedure |-> "work"]>> @@
+  w2 :> <<>> @@
+  w3 :> <<[pc |-> "Done", total |-> 0, count |-> 0, procedure |-> "work"]>> @@
+  Reducer :> <<>> )
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+7: <Process line 153, col 18 to line 162, col 47 of module main>
+/\ final = (w1 :> 0 @@ w2 :> 0 @@ w3 :> 0)
+/\ pc = ( w1 :> "WaitForQueue" @@
+  w2 :> "RegularWorker" @@
+  w3 :> "Process" @@
+  Reducer :> "ReduceResult" )
+/\ assignments = (w1 :> <<>> @@ w2 :> <<0, 0>> @@ w3 :> <<0>>)
+/\ input = <<0, 0>>
+/\ count = (w1 :> 0 @@ w2 :> 0 @@ w3 :> 1 @@ Reducer :> 0)
+/\ queue = (w1 :> <<>> @@ w2 :> <<0, 0>> @@ w3 :> <<>>)
+/\ result = ( w1 :> [total |-> NULL, count |-> NULL] @@
+  w2 :> [total |-> NULL, count |-> NULL] @@
+  w3 :> [total |-> NULL, count |-> NULL] )
+/\ total = (w1 :> 0 @@ w2 :> 0 @@ w3 :> 0 @@ Reducer :> 0)
+/\ status = (w1 :> "active" @@ w2 :> "active" @@ w3 :> "broken")
+/\ stack = ( w1 :> <<[pc |-> "Done", total |-> 0, count |-> 0, procedure |-> "work"]>> @@
+  w2 :> <<>> @@
+  w3 :> <<[pc |-> "Done", total |-> 0, count |-> 0, procedure |-> "work"]>> @@
+  Reducer :> <<>> )
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+8: <Process line 153, col 18 to line 162, col 47 of module main>
+/\ final = (w1 :> 0 @@ w2 :> 0 @@ w3 :> 0)
+/\ pc = ( w1 :> "WaitForQueue" @@
+  w2 :> "RegularWorker" @@
+  w3 :> "Result" @@
+  Reducer :> "ReduceResult" )
+/\ assignments = (w1 :> <<>> @@ w2 :> <<0, 0>> @@ w3 :> <<0>>)
+/\ input = <<0, 0>>
+/\ count = (w1 :> 0 @@ w2 :> 0 @@ w3 :> 1 @@ Reducer :> 0)
+/\ queue = (w1 :> <<>> @@ w2 :> <<0, 0>> @@ w3 :> <<>>)
+/\ result = ( w1 :> [total |-> NULL, count |-> NULL] @@
+  w2 :> [total |-> NULL, count |-> NULL] @@
+  w3 :> [total |-> NULL, count |-> NULL] )
+/\ total = (w1 :> 0 @@ w2 :> 0 @@ w3 :> 0 @@ Reducer :> 0)
+/\ status = (w1 :> "active" @@ w2 :> "active" @@ w3 :> "broken")
+/\ stack = ( w1 :> <<[pc |-> "Done", total |-> 0, count |-> 0, procedure |-> "work"]>> @@
+  w2 :> <<>> @@
+  w3 :> <<[pc |-> "Done", total |-> 0, count |-> 0, procedure |-> "work"]>> @@
+  Reducer :> <<>> )
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+9: <RegularWorker line 218, col 24 to line 228, col 53 of module main>
+/\ final = (w1 :> 0 @@ w2 :> 0 @@ w3 :> 0)
+/\ pc = ( w1 :> "WaitForQueue" @@
+  w2 :> "WaitForQueue" @@
+  w3 :> "Result" @@
+  Reducer :> "ReduceResult" )
+/\ assignments = (w1 :> <<>> @@ w2 :> <<0, 0>> @@ w3 :> <<0>>)
+/\ input = <<0, 0>>
+/\ count = (w1 :> 0 @@ w2 :> 0 @@ w3 :> 1 @@ Reducer :> 0)
+/\ queue = (w1 :> <<>> @@ w2 :> <<0, 0>> @@ w3 :> <<>>)
+/\ result = ( w1 :> [total |-> NULL, count |-> NULL] @@
+  w2 :> [total |-> NULL, count |-> NULL] @@
+  w3 :> [total |-> NULL, count |-> NULL] )
+/\ total = (w1 :> 0 @@ w2 :> 0 @@ w3 :> 0 @@ Reducer :> 0)
+/\ status = (w1 :> "active" @@ w2 :> "active" @@ w3 :> "broken")
+/\ stack = ( w1 :> <<[pc |-> "Done", total |-> 0, count |-> 0, procedure |-> "work"]>> @@
+  w2 :> <<[pc |-> "Done", total |-> 0, count |-> 0, procedure |-> "work"]>> @@
+  w3 :> <<[pc |-> "Done", total |-> 0, count |-> 0, procedure |-> "work"]>> @@
+  Reducer :> <<>> )
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+10: <Result line 164, col 17 to line 168, col 53 of module main>
+/\ final = (w1 :> 0 @@ w2 :> 0 @@ w3 :> 0)
+/\ pc = ( w1 :> "WaitForQueue" @@
+  w2 :> "WaitForQueue" @@
+  w3 :> "WaitForQueue" @@
+  Reducer :> "ReduceResult" )
+/\ assignments = (w1 :> <<>> @@ w2 :> <<0, 0>> @@ w3 :> <<0>>)
+/\ input = <<0, 0>>
+/\ count = (w1 :> 0 @@ w2 :> 0 @@ w3 :> 1 @@ Reducer :> 0)
+/\ queue = (w1 :> <<>> @@ w2 :> <<0, 0>> @@ w3 :> <<>>)
+/\ result = ( w1 :> [total |-> NULL, count |-> NULL] @@
+  w2 :> [total |-> NULL, count |-> NULL] @@
+  w3 :> [total |-> 0, count |-> 1] )
+/\ total = (w1 :> 0 @@ w2 :> 0 @@ w3 :> 0 @@ Reducer :> 0)
+/\ status = (w1 :> "active" @@ w2 :> "active" @@ w3 :> "broken")
+/\ stack = ( w1 :> <<[pc |-> "Done", total |-> 0, count |-> 0, procedure |-> "work"]>> @@
+  w2 :> <<[pc |-> "Done", total |-> 0, count |-> 0, procedure |-> "work"]>> @@
+  w3 :> <<[pc |-> "Done", total |-> 0, count |-> 0, procedure |-> "work"]>> @@
+  Reducer :> <<>> )
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+11: <WaitForQueue line 147, col 23 to line 151, col 73 of module main>
+/\ final = (w1 :> 0 @@ w2 :> 0 @@ w3 :> 0)
+/\ pc = ( w1 :> "WaitForQueue" @@
+  w2 :> "Process" @@
+  w3 :> "WaitForQueue" @@
+  Reducer :> "ReduceResult" )
+/\ assignments = (w1 :> <<>> @@ w2 :> <<0, 0>> @@ w3 :> <<0>>)
+/\ input = <<0, 0>>
+/\ count = (w1 :> 0 @@ w2 :> 0 @@ w3 :> 1 @@ Reducer :> 0)
+/\ queue = (w1 :> <<>> @@ w2 :> <<0, 0>> @@ w3 :> <<>>)
+/\ result = ( w1 :> [total |-> NULL, count |-> NULL] @@
+  w2 :> [total |-> NULL, count |-> NULL] @@
+  w3 :> [total |-> 0, count |-> 1] )
+/\ total = (w1 :> 0 @@ w2 :> 0 @@ w3 :> 0 @@ Reducer :> 0)
+/\ status = (w1 :> "active" @@ w2 :> "active" @@ w3 :> "broken")
+/\ stack = ( w1 :> <<[pc |-> "Done", total |-> 0, count |-> 0, procedure |-> "work"]>> @@
+  w2 :> <<[pc |-> "Done", total |-> 0, count |-> 0, procedure |-> "work"]>> @@
+  w3 :> <<[pc |-> "Done", total |-> 0, count |-> 0, procedure |-> "work"]>> @@
+  Reducer :> <<>> )
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+12: <Process line 153, col 18 to line 162, col 47 of module main>
+/\ final = (w1 :> 0 @@ w2 :> 0 @@ w3 :> 0)
+/\ pc = ( w1 :> "WaitForQueue" @@
+  w2 :> "Process" @@
+  w3 :> "WaitForQueue" @@
+  Reducer :> "ReduceResult" )
+/\ assignments = (w1 :> <<>> @@ w2 :> <<0, 0>> @@ w3 :> <<0>>)
+/\ input = <<0, 0>>
+/\ count = (w1 :> 0 @@ w2 :> 1 @@ w3 :> 1 @@ Reducer :> 0)
+/\ queue = (w1 :> <<>> @@ w2 :> <<0>> @@ w3 :> <<>>)
+/\ result = ( w1 :> [total |-> NULL, count |-> NULL] @@
+  w2 :> [total |-> NULL, count |-> NULL] @@
+  w3 :> [total |-> 0, count |-> 1] )
+/\ total = (w1 :> 0 @@ w2 :> 0 @@ w3 :> 0 @@ Reducer :> 0)
+/\ status = (w1 :> "active" @@ w2 :> "active" @@ w3 :> "broken")
+/\ stack = ( w1 :> <<[pc |-> "Done", total |-> 0, count |-> 0, procedure |-> "work"]>> @@
+  w2 :> <<[pc |-> "Done", total |-> 0, count |-> 0, procedure |-> "work"]>> @@
+  w3 :> <<[pc |-> "Done", total |-> 0, count |-> 0, procedure |-> "work"]>> @@
+  Reducer :> <<>> )
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+13: <Process line 153, col 18 to line 162, col 47 of module main>
+/\ final = (w1 :> 0 @@ w2 :> 0 @@ w3 :> 0)
+/\ pc = ( w1 :> "WaitForQueue" @@
+  w2 :> "Process" @@
+  w3 :> "WaitForQueue" @@
+  Reducer :> "ReduceResult" )
+/\ assignments = (w1 :> <<>> @@ w2 :> <<0, 0>> @@ w3 :> <<0>>)
+/\ input = <<0, 0>>
+/\ count = (w1 :> 0 @@ w2 :> 2 @@ w3 :> 1 @@ Reducer :> 0)
+/\ queue = (w1 :> <<>> @@ w2 :> <<>> @@ w3 :> <<>>)
+/\ result = ( w1 :> [total |-> NULL, count |-> NULL] @@
+  w2 :> [total |-> NULL, count |-> NULL] @@
+  w3 :> [total |-> 0, count |-> 1] )
+/\ total = (w1 :> 0 @@ w2 :> 0 @@ w3 :> 0 @@ Reducer :> 0)
+/\ status = (w1 :> "active" @@ w2 :> "active" @@ w3 :> "broken")
+/\ stack = ( w1 :> <<[pc |-> "Done", total |-> 0, count |-> 0, procedure |-> "work"]>> @@
+  w2 :> <<[pc |-> "Done", total |-> 0, count |-> 0, procedure |-> "work"]>> @@
+  w3 :> <<[pc |-> "Done", total |-> 0, count |-> 0, procedure |-> "work"]>> @@
+  Reducer :> <<>> )
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+14: <Process line 153, col 18 to line 162, col 47 of module main>
+/\ final = (w1 :> 0 @@ w2 :> 0 @@ w3 :> 0)
+/\ pc = ( w1 :> "WaitForQueue" @@
+  w2 :> "Result" @@
+  w3 :> "WaitForQueue" @@
+  Reducer :> "ReduceResult" )
+/\ assignments = (w1 :> <<>> @@ w2 :> <<0, 0>> @@ w3 :> <<0>>)
+/\ input = <<0, 0>>
+/\ count = (w1 :> 0 @@ w2 :> 2 @@ w3 :> 1 @@ Reducer :> 0)
+/\ queue = (w1 :> <<>> @@ w2 :> <<>> @@ w3 :> <<>>)
+/\ result = ( w1 :> [total |-> NULL, count |-> NULL] @@
+  w2 :> [total |-> NULL, count |-> NULL] @@
+  w3 :> [total |-> 0, count |-> 1] )
+/\ total = (w1 :> 0 @@ w2 :> 0 @@ w3 :> 0 @@ Reducer :> 0)
+/\ status = (w1 :> "active" @@ w2 :> "active" @@ w3 :> "broken")
+/\ stack = ( w1 :> <<[pc |-> "Done", total |-> 0, count |-> 0, procedure |-> "work"]>> @@
+  w2 :> <<[pc |-> "Done", total |-> 0, count |-> 0, procedure |-> "work"]>> @@
+  w3 :> <<[pc |-> "Done", total |-> 0, count |-> 0, procedure |-> "work"]>> @@
+  Reducer :> <<>> )
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+15: <Result line 164, col 17 to line 168, col 53 of module main>
+/\ final = (w1 :> 0 @@ w2 :> 0 @@ w3 :> 0)
+/\ pc = ( w1 :> "WaitForQueue" @@
+  w2 :> "WaitForQueue" @@
+  w3 :> "WaitForQueue" @@
+  Reducer :> "ReduceResult" )
+/\ assignments = (w1 :> <<>> @@ w2 :> <<0, 0>> @@ w3 :> <<0>>)
+/\ input = <<0, 0>>
+/\ count = (w1 :> 0 @@ w2 :> 2 @@ w3 :> 1 @@ Reducer :> 0)
+/\ queue = (w1 :> <<>> @@ w2 :> <<>> @@ w3 :> <<>>)
+/\ result = ( w1 :> [total |-> NULL, count |-> NULL] @@
+  w2 :> [total |-> 0, count |-> 2] @@
+  w3 :> [total |-> 0, count |-> 1] )
+/\ total = (w1 :> 0 @@ w2 :> 0 @@ w3 :> 0 @@ Reducer :> 0)
+/\ status = (w1 :> "active" @@ w2 :> "active" @@ w3 :> "broken")
+/\ stack = ( w1 :> <<[pc |-> "Done", total |-> 0, count |-> 0, procedure |-> "work"]>> @@
+  w2 :> <<[pc |-> "Done", total |-> 0, count |-> 0, procedure |-> "work"]>> @@
+  w3 :> <<[pc |-> "Done", total |-> 0, count |-> 0, procedure |-> "work"]>> @@
+  Reducer :> <<>> )
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+16: <ReduceResult line 182, col 17 to line 200, col 69 of module main>
+/\ final = (w1 :> 0 @@ w2 :> 0 @@ w3 :> 0)
+/\ pc = ( w1 :> "WaitForQueue" @@
+  w2 :> "WaitForQueue" @@
+  w3 :> "WaitForQueue" @@
+  Reducer :> "ReduceResult" )
+/\ assignments = (w1 :> <<>> @@ w2 :> <<0, 0>> @@ w3 :> <<0>>)
+/\ input = <<0, 0>>
+/\ count = (w1 :> 0 @@ w2 :> 2 @@ w3 :> 1 @@ Reducer :> 0)
+/\ queue = (w1 :> <<>> @@ w2 :> <<>> @@ w3 :> <<>>)
+/\ result = ( w1 :> [total |-> NULL, count |-> NULL] @@
+  w2 :> [total |-> 0, count |-> 2] @@
+  w3 :> [total |-> 0, count |-> 1] )
+/\ total = (w1 :> 0 @@ w2 :> 0 @@ w3 :> 0 @@ Reducer :> 0)
+/\ status = (w1 :> "active" @@ w2 :> "inactive" @@ w3 :> "broken")
+/\ stack = ( w1 :> <<[pc |-> "Done", total |-> 0, count |-> 0, procedure |-> "work"]>> @@
+  w2 :> <<[pc |-> "Done", total |-> 0, count |-> 0, procedure |-> "work"]>> @@
+  w3 :> <<[pc |-> "Done", total |-> 0, count |-> 0, procedure |-> "work"]>> @@
+  Reducer :> <<>> )
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2218:4 @!@!@
+17: Stuttering
+@!@!@ENDMSG 2218 @!@!@
+@!@!@STARTMSG 2267:0 @!@!@
+Finished checking temporal properties in 00s at 2019-09-22 13:59:12
+@!@!@ENDMSG 2267 @!@!@
+@!@!@STARTMSG 2201:0 @!@!@
+The coverage statistics at 2019-09-22 13:59:12
+@!@!@ENDMSG 2201 @!@!@
+@!@!@STARTMSG 2773:0 @!@!@
+<Init line 131, col 1 to line 131, col 4 of module main>: 18:18
+@!@!@ENDMSG 2773 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 132, col 12 to line 132, col 35 of module main: 2
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 133, col 12 to line 133, col 72 of module main: 18
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 134, col 12 to line 134, col 43 of module main: 18
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 135, col 12 to line 135, col 48 of module main: 18
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 137, col 12 to line 137, col 44 of module main: 18
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 138, col 12 to line 138, col 44 of module main: 18
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 140, col 12 to line 140, col 40 of module main: 18
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 141, col 12 to line 141, col 49 of module main: 18
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 142, col 12 to line 142, col 47 of module main: 18
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 143, col 12 to line 145, col 85 of module main: 18
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2772:0 @!@!@
+<WaitForQueue line 147, col 1 to line 147, col 18 of module main>: 5448:12351
+@!@!@ENDMSG 2772 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 147, col 26 to line 147, col 50 of module main: 125929
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 147, col 26 to line 147, col 33 of module main: 113578
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 148, col 26 to line 148, col 44 of module main: 43154
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 148, col 26 to line 148, col 36 of module main: 30803
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 148, col 41 to line 148, col 44 of module main: 30803
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 149, col 26 to line 149, col 62 of module main: 12351
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 150, col 26 to line 151, col 73 of module main: 12351
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2772:0 @!@!@
+<Process line 153, col 1 to line 153, col 13 of module main>: 11742:27725
+@!@!@ENDMSG 2772 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 153, col 21 to line 153, col 40 of module main: 141301
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 153, col 21 to line 153, col 28 of module main: 113576
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 154, col 24 to line 154, col 42 of module main: 27725
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 155, col 29 to line 158, col 68 of module main: 15375
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 159, col 32 to line 159, col 67 of module main: 12350
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 160, col 32 to line 160, col 66 of module main: 12350
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 161, col 21 to line 162, col 47 of module main: 27725
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2772:0 @!@!@
+<Result line 164, col 1 to line 164, col 12 of module main>: 5403:14079
+@!@!@ENDMSG 2772 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 164, col 20 to line 164, col 38 of module main: 127650
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 164, col 20 to line 164, col 27 of module main: 113571
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 165, col 20 to line 165, col 101 of module main: 14079
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 166, col 20 to line 166, col 61 of module main: 14079
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 167, col 20 to line 168, col 53 of module main: 14079
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2772:0 @!@!@
+<Schedule line 172, col 1 to line 172, col 8 of module main>: 10:75
+@!@!@ENDMSG 2772 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 172, col 16 to line 172, col 39 of module main: 28476
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 172, col 16 to line 172, col 26 of module main: 28401
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 174, col 18 to line 178, col 41 of module main: 75
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 179, col 16 to line 179, col 60 of module main: 75
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 180, col 16 to line 180, col 80 of module main: 75
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2772:0 @!@!@
+<ReduceResult line 182, col 1 to line 182, col 12 of module main>: 1406:15931
+@!@!@ENDMSG 2772 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 182, col 20 to line 182, col 47 of module main: 40292
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 182, col 20 to line 182, col 30 of module main: 28400
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 183, col 23 to line 183, col 41 of module main: 26382
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 183, col 23 to line 183, col 35 of module main: 26382
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  ||line 111, col 18 to line 111, col 54 of module main: 26382
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |||line 111, col 34 to line 111, col 53 of module main: 79146
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |||line 111, col 25 to line 111, col 31 of module main: 26382
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 183, col 40 to line 183, col 41 of module main: 26382
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 185, col 39 to line 186, col 84 of module main: 3817
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2775:0 @!@!@
+  line 184, col 46 to line 184, col 105 of module main: 24438:28255
+@!@!@ENDMSG 2775 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 184, col 68 to line 184, col 104 of module main: 32444
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 184, col 53 to line 184, col 65 of module main: 24438
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2775:0 @!@!@
+  ||line 111, col 18 to line 111, col 54 of module main: 24438:56882
+@!@!@ENDMSG 2775 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |||line 111, col 34 to line 111, col 53 of module main: 73314
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |||line 111, col 25 to line 111, col 31 of module main: 24438
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 187, col 37 to line 187, col 68 of module main: 3817
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 190, col 41 to line 194, col 83 of module main: 10170
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 189, col 56 to line 189, col 85 of module main: 8654
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 189, col 56 to line 189, col 69 of module main: 8654
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2775:0 @!@!@
+  ||line 112, col 19 to line 112, col 56 of module main: 8654:18824
+@!@!@ENDMSG 2775 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |||line 112, col 35 to line 112, col 55 of module main: 25962
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |||line 112, col 26 to line 112, col 32 of module main: 8654
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 189, col 73 to line 189, col 85 of module main: 8654
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 188, col 56 to line 188, col 82 of module main: 24438
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 188, col 56 to line 188, col 68 of module main: 24438
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2775:0 @!@!@
+  ||line 111, col 18 to line 111, col 54 of module main: 24438:33092
+@!@!@ENDMSG 2775 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |||line 111, col 34 to line 111, col 53 of module main: 73314
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |||line 111, col 25 to line 111, col 31 of module main: 24438
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 188, col 72 to line 188, col 82 of module main: 24438
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 195, col 31 to line 195, col 75 of module main: 13987
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 196, col 31 to line 197, col 82 of module main: 1944
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 198, col 31 to line 198, col 67 of module main: 1944
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 199, col 31 to line 199, col 79 of module main: 1944
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 200, col 20 to line 200, col 69 of module main: 15931
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2772:0 @!@!@
+<FairWorker line 204, col 1 to line 204, col 16 of module main>: 204:4474
+@!@!@ENDMSG 2772 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 204, col 24 to line 204, col 46 of module main: 32863
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 204, col 24 to line 204, col 31 of module main: 28389
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 205, col 24 to line 209, col 72 of module main: 4474
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 210, col 24 to line 210, col 58 of module main: 4474
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 211, col 24 to line 211, col 58 of module main: 4474
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 212, col 24 to line 212, col 65 of module main: 4474
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 213, col 24 to line 214, col 50 of module main: 4474
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2772:0 @!@!@
+<RegularWorker line 218, col 1 to line 218, col 19 of module main>: 4164:8103
+@!@!@ENDMSG 2772 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 218, col 27 to line 218, col 52 of module main: 64878
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 218, col 27 to line 218, col 34 of module main: 56775
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 219, col 27 to line 223, col 75 of module main: 8103
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 224, col 27 to line 224, col 61 of module main: 8103
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 225, col 27 to line 225, col 61 of module main: 8103
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 226, col 27 to line 226, col 68 of module main: 8103
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 227, col 27 to line 228, col 53 of module main: 8103
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2772:0 @!@!@
+<Terminating line 233, col 1 to line 233, col 11 of module main>: 0:0
+@!@!@ENDMSG 2772 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 233, col 19 to line 233, col 56 of module main: 28386
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 234, col 19 to line 234, col 32 of module main: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2774:0 @!@!@
+<TypeInvariant line 114, col 1 to line 114, col 13 of module main>
+@!@!@ENDMSG 2774 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 115, col 5 to line 122, col 42 of module main: 28386
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 115, col 8 to line 115, col 63 of module main: 28386
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 116, col 8 to line 122, col 42 of module main: 28386
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  ||line 117, col 9 to line 122, col 42 of module main: 85158
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |||line 117, col 12 to line 117, col 37 of module main: 85158
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |||line 118, col 12 to line 118, col 69 of module main: 85158
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  ||||line 118, col 42 to line 118, col 69 of module main: 49140
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  ||||line 118, col 24 to line 118, col 39 of module main: 85158
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |||line 119, col 12 to line 120, col 46 of module main: 85158
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  ||||line 119, col 15 to line 119, col 36 of module main: 85158
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  ||||line 120, col 15 to line 120, col 46 of module main: 23400
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |||line 121, col 12 to line 122, col 42 of module main: 85158
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  ||||line 121, col 15 to line 121, col 36 of module main: 85158
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  ||||line 122, col 15 to line 122, col 42 of module main: 23400
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  ||line 116, col 17 to line 116, col 23 of module main: 28386
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2202:0 @!@!@
+End of statistics.
+@!@!@ENDMSG 2202 @!@!@
+@!@!@STARTMSG 2200:0 @!@!@
+Progress(25) at 2019-09-22 13:59:12: 82,710 states generated (794,016 s/min), 28,386 distinct states found (272,505 ds/min), 0 states left on queue.
+@!@!@ENDMSG 2200 @!@!@
+@!@!@STARTMSG 2199:0 @!@!@
+82710 states generated, 28386 distinct states found, 0 states left on queue.
+@!@!@ENDMSG 2199 @!@!@
+@!@!@STARTMSG 2186:0 @!@!@
+Finished in 6251ms at (2019-09-22 13:59:12)
+@!@!@ENDMSG 2186 @!@!@
